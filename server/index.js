@@ -6,12 +6,7 @@ app.listen(3000, () => console.log('Server is ready.'));
 const fs = require('fs');
 app.get('/api/v1/photo', (req, res) => {
   const options = {encoding: 'base64'};
+  const stream = fs.createReadStream(__dirname + '/gratisography-paper-mache.jpg', options);
 
-  fs.readFile('./gratisography-paper-mache.jpg', options, (err, base64) => {
-    if (err) {
-      return res.status(404).send(err);
-    }
-
-    res.send('data:image/png;base64,' + base64);
-  });
+  stream.pipe(res);
 });

@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.imgData = this.photoService.getPhotoAsBase64()
       .pipe(
-        map(imgAsBase64 => this.domSanitizer.bypassSecurityTrustUrl(imgAsBase64))
+        map(imgAsBase64 => this.domSanitizer.bypassSecurityTrustUrl(`data:image/jpg;base64,${imgAsBase64}`))
       );
   }
 }

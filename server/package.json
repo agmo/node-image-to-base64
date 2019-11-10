@@ -1,6 +1,6 @@
 {
   "name": "demo-server",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A demo server that sends an image as a base64 string",
   "main": "index.js",
   "author": "agmo",

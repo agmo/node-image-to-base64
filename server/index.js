@@ -5,8 +5,13 @@ app.listen(3000, () => console.log('Server is ready.'));
 
 const fs = require('fs');
 app.get('/api/v1/photo', (req, res) => {
-  const photo = fs.readFileSync('./gratisography-paper-mache.jpg');
-  const data = Buffer.from(photo).toString('base64');
+  const options = {encoding: 'base64'};
 
-  res.send('data:image/png;base64,' + data);
+  fs.readFile('./gratisography-paper-mache.jpg', options, (err, base64) => {
+    if (err) {
+      return res.status(404).send(err);
+    }
+
+    res.send('data:image/png;base64,' + base64);
+  });
 });

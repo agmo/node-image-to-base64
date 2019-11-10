@@ -1,0 +1,10 @@
+{
+  "name": "demo-server",
+  "version": "1.0.0",
+  "description": "A demo server that sends an image as a base64 string",
+  "main": "index.js",
+  "author": "agmo",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

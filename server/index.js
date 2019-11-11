@@ -9,4 +9,9 @@ app.get('/api/v1/photo', (req, res) => {
   const stream = fs.createReadStream(__dirname + '/gratisography-paper-mache.jpg', options);
 
   stream.pipe(res);
+  stream.on('error', (err) => {
+    if (err) {
+      return res.status(404).send(err);
+    }
+  })
 });
